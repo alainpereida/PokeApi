@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".LoginActivity">
+    tools:context=".Activitys.LoginActivity">
 
     <ImageView
         android:id="@+id/image"
@@ -38,6 +38,7 @@
             android:inputType="textEmailAddress" />
 
         <EditText
+            android:id="@+id/getPassword"
             android:layout_width="match_parent"
             android:layout_height="@dimen/heigth_edit"
             android:layout_marginBottom="@dimen/size_text"
