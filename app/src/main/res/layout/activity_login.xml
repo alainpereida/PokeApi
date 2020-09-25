@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/pokeapi"
+        android:layout_marginTop="@dimen/img_margin"
+        android:background="@color/background"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/image"
+        android:layout_marginRight="@dimen/fab_margin"
+        android:layout_marginLeft="@dimen/fab_margin"
+        android:layout_marginTop="@dimen/top_margin"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/getEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/heigth_edit"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custon_email_icon"
+            android:drawablePadding="@dimen/draw_paddin"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/heigth_edit"
+            android:layout_marginBottom="@dimen/size_text"
+            android:layout_marginTop="@dimen/size_text"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_look_icon"
+            android:drawablePadding="@dimen/draw_paddin"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/button_login"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/size_text"
+            android:layout_height="@dimen/heigth_edit"
+            android:layout_gravity="center"
+            android:textColor="@color/background"
+            android:text="@string/button_login"
+            android:background="@drawable/custon_button"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/button_register"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/size_text"
+            android:layout_height="@dimen/heigth_edit"
+            android:layout_gravity="center"
+            android:textColor="@color/background"
+            android:text="@string/button_register"
+            android:background="@drawable/custon_button"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

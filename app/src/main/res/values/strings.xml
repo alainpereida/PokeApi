@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">PokeApi</string>
-
+    <string name="email">Ingrese el Email</string>
+    <string name="password">Ingrese el Password</string>
+    <string name="button_login">Login</string>
+    <string name="button_register">Registrarse</string>
 </resources>
