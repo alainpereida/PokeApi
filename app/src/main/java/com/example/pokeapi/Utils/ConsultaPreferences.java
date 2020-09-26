@@ -1,8 +1,10 @@
-package com.example.pokeapi.Models;
+package com.example.pokeapi.Utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+
+import com.example.pokeapi.Models.User;
 
 /**
  * Instancia para obtener los valores del Preferences

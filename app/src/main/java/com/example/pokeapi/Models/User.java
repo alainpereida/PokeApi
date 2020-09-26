@@ -1,10 +1,25 @@
 package com.example.pokeapi.Models;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+
+import me.sargunvohra.lib.pokekotlin.model.Pokemon;
+
 public class User {
+    @SerializedName("firstName")
     private String firstName;
+
+    @SerializedName("lastName")
     private String last_name;
+
+    @SerializedName("email")
     private String email_user;
+
+    @SerializedName("password")
     private String password;
+
+    private ArrayList<Pokemon> pokemons;
 
     public User(String firstName, String last_name, String email_user, String password) {
         this.firstName = firstName;
@@ -32,4 +47,7 @@ public class User {
         return password;
     }
 
+    public void setPokemons(ArrayList<Pokemon> pokemons){
+        this.pokemons = pokemons;
+    }
 }
