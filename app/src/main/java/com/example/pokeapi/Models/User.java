@@ -4,8 +4,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
-import me.sargunvohra.lib.pokekotlin.model.Pokemon;
-
 public class User {
     @SerializedName("firstName")
     private String firstName;

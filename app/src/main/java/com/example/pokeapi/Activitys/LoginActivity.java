@@ -9,17 +9,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pokeapi.Controllers.LoginController;
-import com.example.pokeapi.Utils.ConsultaPreferences;
-import com.example.pokeapi.Models.User;
 import com.example.pokeapi.R;
-
-import org.json.JSONException;
-
-import java.io.IOException;
-import java.util.ArrayList;
-
-import me.sargunvohra.lib.pokekotlin.client.PokeApi;
-
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
