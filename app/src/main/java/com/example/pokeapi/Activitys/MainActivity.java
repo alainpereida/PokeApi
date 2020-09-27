@@ -18,6 +18,7 @@ import com.example.pokeapi.Models.PokemonResponse;
 import com.example.pokeapi.Controllers.PokemonService;
 import com.example.pokeapi.Models.User;
 import com.example.pokeapi.R;
+import com.example.pokeapi.Utils.ConsultaPreferences;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,23 +31,32 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private LoginController loginController;
+    private ConsultaPreferences consultaPreferences;
     private User user;
     private Button button_logout;
     private PokemonService pokemonService;
     private RecyclerView recyclerView;
     private GridLayoutManager layout;
     private PokemonAdapter pokemonAdapter;
-    private ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
+    private ArrayList<Pokemon> pokemons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        pokemonService = APIUtils.getPokemonsService();
+
+        consultaPreferences = new ConsultaPreferences(getApplicationContext());
+        pokemons = consultaPreferences.getPokemons();
+
+        if (pokemons.size() == 0)
+            getPokemons();
+
         recyclerView = (RecyclerView) findViewById(R.id.recycle);
         recyclerView.setHasFixedSize(true);
 
-        layout = new GridLayoutManager(getApplicationContext(), 3);
+        layout = new GridLayoutManager(getApplicationContext(), 2);
         recyclerView.setLayoutManager(layout);
 
         pokemonAdapter = new PokemonAdapter(getApplicationContext(), pokemons);
@@ -56,11 +66,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button_logout.setOnClickListener(this);
 
         loginController = new LoginController(getApplicationContext());
-        User u = loginController.getUser();
-        Toast.makeText(getApplicationContext(), "Name : " + u.getFirstName(),Toast.LENGTH_LONG).show();
-
-        pokemonService = APIUtils.getPokemonsService();
-        getPokemons();
+        user = loginController.getUser();
+        Toast.makeText(getApplicationContext(), "Bienvenido " + user.getFirstName() + " " + user.getLast_name(),Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -81,13 +88,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if(response.isSuccessful()){
                     PokemonResponse pokemonResponse = response.body();
                     pokemons = pokemonResponse.getResults();
-                    Log.i("POKEDEX", "Pokemnos: "+ pokemons.get(0).getName());
                     pokemonAdapter.setPokemons(pokemons);
+                    consultaPreferences.savePokemons(pokemons);
                 } else {
                     Log.i("POKEDEX", "Pokemon " + response.errorBody());
                 }
             }
-
             @Override
             public void onFailure(Call<PokemonResponse> call, Throwable t) {
                 Log.i("POKEDEX", "ERROR:  " + t.getMessage());

@@ -22,10 +22,6 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonH
     private ArrayList<Pokemon> list;
     private final Context context;
 
-    public PokemonAdapter(Context context) {
-        this.context = context;
-    }
-
     public PokemonAdapter(Context context, ArrayList<Pokemon> list) {
         this.context = context;
         this.list = list;
@@ -43,9 +39,10 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonH
     public void onBindViewHolder(@NonNull PokemonHolder holder, int position) {
             holder.pokemon = list.get(position);
             holder.nameView.setText(holder.pokemon.getName());
+            holder.number.setText("No. " + holder.pokemon.getNumber());
 
         Glide.with(context)
-                .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + holder.pokemon.getNumber() + ".png")
+                .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + holder.pokemon.getNumber() + ".png")
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(holder.imageView);
@@ -64,12 +61,14 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonH
     public class PokemonHolder extends RecyclerView.ViewHolder {
         private final ImageView imageView;
         private final TextView nameView;
+        private final TextView number;
         public Pokemon pokemon;
 
         public PokemonHolder(View view) {
             super(view);
             imageView = (ImageView) view.findViewById(R.id.imageView);
             nameView = (TextView) view.findViewById(R.id.nameView);
+            number = (TextView) view.findViewById(R.id.numerView);
         }
 
         @Override

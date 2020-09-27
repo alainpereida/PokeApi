@@ -6,4 +6,6 @@
     <color name="black">#000000</color>
     <color name="background">#FFFFFF</color>
     <color name="backgroundMain">#0E1209</color>
+    <color name="backgroundPokemon">#4F4F40</color>
+    <color name="number">#F8B128</color>
 </resources>

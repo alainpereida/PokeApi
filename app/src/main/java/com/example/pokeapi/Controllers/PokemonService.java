@@ -11,6 +11,6 @@ import retrofit2.http.Query;
  */
 public interface PokemonService {
 
-    @GET("pokemon/?offset=1&limit=50")
+    @GET("pokemon/")
     Call<PokemonResponse> getListPokemnos(@Query("limit") int limit, @Query("offset") int offset);
 }
