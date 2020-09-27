@@ -1,6 +1,10 @@
 # Pokeapi
 Prueba de proceso de selección en sunwise
 
+Icon del la App en el telefono.
+
+![](images/iconView.png)
+
 Para empezar a utlizar el proyecto lo primero que debes hacer es descargarlo, estos son los pasos para descargarlo.
 1. Ejecuta Android Studio y debes estar en la ventana principal de Android Studio. (Si tienes algun proyecto abierto debes cerrarlo.)
 1. Una vez que te encuentras en la ventana principal de Android Studio debes seleccionar la opcion **Get from Version Control**
@@ -43,3 +47,9 @@ Estos son lo usurios que tiene el software.
 1. Alfredo Fernandez
    * alfredo_10@hotmail.com
    * password
+
+Imagenes del software terminado.
+
+![](images/loginView.png)
+
+![](images/mainView.png)
